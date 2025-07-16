@@ -1,0 +1,556 @@
+html, body {
+    height: 100%;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+}
+.navbar {
+    background: #003580;
+    color: #fff;
+    padding: 1rem 0;
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.navbar .nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.navbar .nav-links a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -2;
+}
+
+.navbar .nav-links a:hover {
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.navbar .nav-links a:hover::before {
+    opacity: 1;
+    transform: scale(1);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 4px 16px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.navbar .nav-links a:hover::after {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+}
+
+.navbar .nav-links a:active {
+    transform: translateY(0);
+    transition: all 0.1s ease;
+}
+
+.navbar .nav-links a:active::before {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    transform: scale(0.95);
+}
+/* --- HERO SECTION --- */
+.redesigned-hero {
+    background: linear-gradient(120deg, #e6f0ff 60%, #f8f9fa 100%);
+    padding: 3rem 1rem 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    gap: 2rem;
+}
+.hero-text {
+    flex: 1;
+}
+.hero-text h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: #003580;
+}
+.hero-text p {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+.hero-logo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.hero-logo img {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    background: rgba(255,255,255,0.7);
+}
+
+/* --- SEARCH BUTTONS --- */
+.redesigned-search {
+    background: transparent;
+    padding: 2.5rem 1rem 2rem 1rem;
+    text-align: center;
+}
+.search-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+.glass-btn {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #003580;
+    letter-spacing: 0.01em;
+    background: rgba(255,255,255,0.18);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    border-radius: 16px;
+    padding: 1.1rem 2.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    backdrop-filter: blur(24px) saturate(1.3);
+    -webkit-backdrop-filter: blur(24px) saturate(1.3);
+    transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+}
+.glass-btn span {
+    font-weight: 700;
+    color: #003580;
+    font-size: 1.2rem;
+    letter-spacing: 0.01em;
+}
+.glass-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.10) 100%);
+    border-radius: 16px;
+    opacity: 1;
+    transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    z-index: 0;
+    pointer-events: none;
+}
+.glass-btn::after {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: -40%;
+    width: 180%;
+    height: 180%;
+    background: radial-gradient(circle at 60% 40%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.10) 60%, transparent 100%);
+    opacity: 0.7;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    transition: background 0.5s, opacity 0.35s cubic-bezier(0.4,0,0.2,1);
+    filter: blur(2px);
+    animation: glassy-move 3.5s infinite linear;
+}
+@keyframes glassy-move {
+    0% { background-position: 60% 40%; }
+    50% { background-position: 40% 60%; }
+    100% { background-position: 60% 40%; }
+}
+.glass-btn:hover, .glass-btn:focus {
+    color: #003580;
+    background: rgba(255,255,255,0.32);
+    border: 1.5px solid #7ecbff;
+    box-shadow: 0 4px 32px 0 rgba(0,53,128,0.13), 0 0 32px 0 #7ecbff66;
+    transform: translateY(-2px) scale(1.045);
+}
+.glass-btn:hover span, .glass-btn:focus span {
+    color: #003580;
+}
+.glass-btn:active {
+    transform: scale(0.98);
+    background: rgba(255,255,255,0.36);
+    border: 1.5px solid #4fa3e3;
+}
+.glass-btn:active span {
+    color: #003580;
+}
+
+/* --- DESTINATIONS --- */
+.redesigned-destinations {
+    background: #fff;
+    padding: 2.5rem 1rem 3rem 1rem;
+    text-align: center;
+}
+.destination-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+.destination-card {
+    width: 220px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    background: rgba(255,255,255,0.18);
+    position: relative;
+    transition: transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1);
+    cursor: pointer;
+}
+.destination-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
+}
+.destination-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #003580;
+    padding: 1rem 0.5rem;
+    background: rgba(255,255,255,0.7);
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+.destination-card:hover, .destination-card:focus {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 16px 48px rgba(0,53,128,0.13);
+    background: rgba(255,255,255,0.28);
+}
+
+/* --- GLASS CARD (for future use) --- */
+.glass-card {
+    background: rgba(255,255,255,0.18);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 900px) {
+    .hero-content {
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    .hero-logo {
+        justify-content: center;
+    }
+}
+@media (max-width: 600px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    .hero-logo img {
+        max-width: 180px;
+    }
+    .search-buttons {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+    .destination-list {
+        gap: 1.2rem;
+    }
+    .destination-card {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+}
+
+/* --- GENERAL IMPROVEMENTS --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f9fa;
+    color: #222;
+}
+
+/* Keep navbar and footer styles as before, but refine as needed for glass effect */
+.auth-form {
+    max-width: 400px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.auth-form h2 {
+    margin-bottom: 1rem;
+}
+.auth-form input {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.auth-form button {
+    padding: 0.75rem;
+    background: #003580;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.auth-form button:hover {
+    background: #0056b3;
+}
+.footer {
+    background: #003580;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;
+} 
+
+/* --- STRIPE CARD ELEMENT MATCHES INPUT FIELDS --- */
+#card-element {
+    padding: 0.7em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 1em;
+    font-family: inherit;
+    margin-bottom: 0.5em;
+    min-height: 44px;
+    box-sizing: border-box;
+    transition: border 0.2s;
+}
+#card-element.StripeElement--focus {
+    border-color: #003580;
+    box-shadow: 0 0 0 2px #e6f0ff;
+}
+#card-element.StripeElement--invalid {
+    border-color: #fc5c7d;
+}
+
+/* Ensure payment page grid/card styles are not overridden */
+.payment-page {
+    padding: 2rem 0;
+    background: #f8f9fa;
+    min-height: calc(100vh - 200px);
+}
+.payment-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.booking-summary,
+.payment-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.booking-summary h2,
+.payment-form h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 0.5rem;
+}
+.flight-details h3, .hotel-details h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+.location {
+    color: #666;
+    margin-bottom: 1rem;
+}
+.dates,
+.guests,
+.rooms,
+.room-type,
+.seats,
+.carrier {
+    margin-bottom: 0.75rem;
+}
+.date-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+.label {
+    font-weight: 500;
+    color: #666;
+}
+.value {
+    color: #333;
+}
+.price-breakdown {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f0f0f0;
+}
+.price-breakdown h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+.price-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f0f0;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+}
+.payment-form-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 0.3em;
+}
+.form-row {
+    display: flex;
+    gap: 1em;
+}
+.form-row .form-group {
+    flex: 1;
+}
+.btn-pay {
+    width: 100%;
+    font-size: 1.1em;
+    background: linear-gradient(90deg,#6a82fb 0%,#fc5c7d 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 1em 0;
+    font-weight: 600;
+    margin-top: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-pay:hover {
+    background: linear-gradient(90deg,#fc5c7d 0%,#6a82fb 100%);
+}
+.terms {
+    margin-bottom: 1em;
+}
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 0.98em;
+}
+.checkbox-label input[type="checkbox"] {
+    margin-right: 0.5em;
+} 
+
+/* --- GLOBAL PRIMARY BUTTON --- */
+.btn-primary {
+    background: #6c87f8;
+    color: #fff;
+    border: none;
+    padding: 0.6em 1.5em;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, box-shadow 0.2s;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(108, 135, 248, 0.08);
+}
+.btn-primary:hover {
+    background: #5473e8;
+} 
